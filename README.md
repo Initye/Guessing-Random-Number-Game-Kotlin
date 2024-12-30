@@ -1,3 +1,4 @@
+# **Description**
 This is a simple number guessing game built with Kotlin. The goal is to guess a random number between 1 and 10. 
 If you guess correctly, your score increments. 
 The game continues until you choose to stop playing.
