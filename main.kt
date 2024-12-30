@@ -21,7 +21,7 @@ fun main() {
 fun randomNumber(): Int {
     val randomValues =  List(1) {Random.nextInt(1, 11)} //Generate random number and put it into list (thats not most efficient way but i did this to train (you can just use Random.nextInt without List))
     val value  = randomValues[0] //Makes The number from list an Int
-    println("Generated value: $value") //No need to print this, made it only to debug thats why it's commented, if you want to know the generated number uncomments this
+    // println("Generated value: $value") //No need to print this, made it only to debug thats why it's commented, if you want to know the generated number uncomments this
 
     return value
 }
