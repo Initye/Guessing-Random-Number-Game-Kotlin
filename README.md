@@ -3,7 +3,7 @@ This is a simple number guessing game built with Kotlin. The goal is to guess a 
 If you guess correctly, your score increments. <br/>
 The game continues until you choose to stop playing.
 
-# **How to edit:**
+# **How to start/edit:**
 To launch the game use: ```java -jar main.jar``` in terminal. <br/>
 If you add something to the code, make sure to save it and use ```kotlinc main.kt -include-runtime -d main.jar``` to update the game, then you can proceed with launching.
 
