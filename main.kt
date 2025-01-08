@@ -26,7 +26,7 @@ fun randomNumber(difficultyLevel: Int): Int {
         3 -> 1..15
         else -> 1..10
     }
-    val value = Random.nextInt(range.first, range.last + 1) //Makes The number from list an Int
+    val value = Random.nextInt(range.first, range.last + 1) 
     //println("Generated value: $value") //No need to print this, made it only to debug thats why it's commented, if you want to know the generated number uncomments this
     //println("Number range: $range") //No need to print this, made it only to debug thats why it's commented, if you want to see the range of numbers uncomments this
     return value
