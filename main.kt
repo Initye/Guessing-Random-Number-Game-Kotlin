@@ -6,9 +6,10 @@ var score = 0 //made it global
 
 fun main() {
     var keepPlaying = true
-    
+    val difficultyLevel = difficulty()
+
     while (keepPlaying){ //while keepPlaying == true, loop the game
-        val value = randomNumber()
+        val value = randomNumber(difficultyLevel)
         val integer = selectedNumber()
 
         logic(integer, value)
@@ -18,12 +19,41 @@ fun main() {
 }
 
 
-fun randomNumber(): Int {
-    val randomValues =  List(1) {Random.nextInt(1, 11)} //Generate random number and put it into list (thats not most efficient way but i did this to train (you can just use Random.nextInt without List))
-    val value  = randomValues[0] //Makes The number from list an Int
+fun randomNumber(difficultyLevel: Int): Int {
+    val range = when(difficultyLevel) {
+        1 -> 1..5 
+        2 -> 1..10
+        3 -> 1..15
+        else -> 1..10
+    }
+    val value = Random.nextInt(range.first, range.last + 1) //Makes The number from list an Int
     println("Generated value: $value") //No need to print this, made it only to debug thats why it's commented, if you want to know the generated number uncomments this
-
+    //println("Number range: $range") //No need to print this, made it only to debug thats why it's commented, if you want to see the range of numbers uncomments this
     return value
+}
+
+fun difficulty(): Int  { 
+    var level: Int? = null
+    val reader = Scanner(System.`in`)
+    print("Please select difficulty: Easy/Normal/Hard: ")
+    
+    val response = reader.nextLine().lowercase()
+
+    if (response == "easy"){
+        level = 1
+    } 
+    else if (response == "normal") {
+        level = 2
+    } 
+    else if (response == "hard") {
+        level = 3
+    } else { 
+        println("Invalid input. Setting difficulty to 'Normal'. ")
+        level = 2
+    }
+
+    //println("Value of selected difficulty: $level") //No need to print this, made it only to debug thats why it's commented, if you want to know the value of level uncomments this
+    return level
 }
 
 fun selectedNumber(): Int {
@@ -41,11 +71,13 @@ fun logic(integer: Int, value: Int) {
         println("Correct")
     } else {
         score = 0
-        println("Nope, not that one, try again")
-    }
+        println("No, not this one")
+    } 
 
     println("Your score: $score")
 }
+
+
 
 fun askToKeepPlaying(): Boolean {
     var decision: Boolean
